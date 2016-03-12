@@ -1,4 +1,4 @@
-package com.kookykraftmc.prismplus.com.kookykraftmc.prismplus.Actions;
+package com.kookykraftmc.prismplus.actions;
 
 import com.kookykraftmc.prismplus.Prismplus;
 import me.botsko.prism.events.PrismCustomPlayerActionEvent;

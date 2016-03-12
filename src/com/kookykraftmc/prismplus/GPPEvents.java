@@ -1,9 +1,9 @@
 package com.kookykraftmc.prismplus;
 
-import com.kookykraftmc.prismplus.com.kookykraftmc.prismplus.Actions.ClaimCreateAction;
-import com.kookykraftmc.prismplus.com.kookykraftmc.prismplus.Actions.ClaimEnterAction;
-import com.kookykraftmc.prismplus.com.kookykraftmc.prismplus.Actions.ClaimExitAction;
-import com.kookykraftmc.prismplus.com.kookykraftmc.prismplus.Actions.ClaimRemoveAction;
+import com.kookykraftmc.prismplus.actions.ClaimCreateAction;
+import com.kookykraftmc.prismplus.actions.ClaimEnterAction;
+import com.kookykraftmc.prismplus.actions.ClaimExitAction;
+import com.kookykraftmc.prismplus.actions.ClaimRemoveAction;
 import net.kaikk.mc.gpp.events.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

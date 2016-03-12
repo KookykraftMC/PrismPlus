@@ -34,7 +34,7 @@ public class Prismplus extends JavaPlugin {
             //check for GP+
             if (gppEnabledCfg == true && gppCheck() == true) {
 
-                Plugin GPP = this.getServer().getPluginManager().getPlugin("GriefPreventionPlus");
+                //Plugin GPP = this.getServer().getPluginManager().getPlugin("GriefPreventionPlus");
 
                 l.info("GriefPreventionPlus event logging enabled!");
 
