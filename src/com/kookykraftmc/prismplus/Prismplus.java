@@ -1,10 +1,8 @@
 package com.kookykraftmc.prismplus;
 
-import com.massivecraft.factions.Factions;
 import me.botsko.prism.Prism;
 import me.botsko.prism.actionlibs.ActionType;
 import me.botsko.prism.exceptions.InvalidActionException;
-import net.kaikk.mc.gpp.GriefPreventionPlus;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,11 +12,6 @@ import java.util.logging.Logger;
  * Created by TimeTheCat on 3/8/2016.
  */
 public class Prismplus extends JavaPlugin {
-    //get plugins
-    public GriefPreventionPlus GPP = GriefPreventionPlus.getInstance();
-    public Plugin FAC = this.getServer().getPluginManager().getPlugin("Factions");
-    public Plugin prism = this.getServer().getPluginManager().getPlugin("Prism");
-
     //get Prism
     private Prism pri;
     //public logger
@@ -36,10 +29,15 @@ public class Prismplus extends JavaPlugin {
         //check if prism is enabled
         if (prismCheck() == true) {
             l.info("Prism found! Enabling plugin!");
+            Plugin prism = this.getServer().getPluginManager().getPlugin("Prism");
             pri = (Prism) prism;
             //check for GP+
             if (gppEnabledCfg == true && gppCheck() == true) {
+
+                Plugin GPP = this.getServer().getPluginManager().getPlugin("GriefPreventionPlus");
+                
                 l.info("GriefPreventionPlus event logging enabled!");
+
                 this.getServer().getPluginManager().registerEvents(new GPPEvents(this), this);
                 //add prism actions
                 try {
@@ -57,6 +55,7 @@ public class Prismplus extends JavaPlugin {
             //check for Factions
             if (factionsEnabledCfg == true && factionsCheck() == true) {
                 l.info("Factions event logging enabled!");
+                //Plugin GPP = this.getServer().getPluginManager().getPlugin("Factions");
                 //this.getServer().getPluginManager().registerEvents(new FactionEvents(), this);
             } else {
                 l.info("Factions support disabled or not found");
@@ -66,21 +65,21 @@ public class Prismplus extends JavaPlugin {
         }
     }
     public boolean gppCheck() {
-        if (GPP.isEnabled() == true) {
+        if (getServer().getPluginManager().getPlugin("GriefPreventionPlus").isEnabled() == true) {
             return true;
         } else {
             return false;
         }
     }
     public boolean factionsCheck() {
-        if (FAC.isEnabled() == true) {
+        if (getServer().getPluginManager().getPlugin("Factions").isEnabled() == true) {
             return true;
         } else {
             return false;
         }
     }
     public boolean prismCheck() {
-        if (prism.isEnabled() == true) {
+        if (getServer().getPluginManager().getPlugin("Prism").isEnabled() == true) {
             return true;
         } else {
             return false;

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Prism+">
+    <output-path>$PROJECT_DIR$/out/artifacts/Prism_</output-path>
+    <root id="archive" name="Prism+.jar">
+      <element id="module-output" name="Prism+WorkSpace" />
+    </root>
+  </artifact>
+</component>
