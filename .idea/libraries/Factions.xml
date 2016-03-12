@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Factions">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Libs/Factions.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Libs/GriefPreventionPlus-12.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Libs/prism-2.0.3-Cauldron-MC1.7-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Libs/Thermos-1.7.10-1614.44-beta-server.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/Libs/Factions.jar!/" />
+    </SOURCES>
+  </library>
+</component>

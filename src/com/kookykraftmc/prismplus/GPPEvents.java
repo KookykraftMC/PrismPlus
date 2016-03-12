@@ -1,61 +1,48 @@
 package com.kookykraftmc.prismplus;
 
-import me.botsko.prism.Prism;
-import net.kaikk.mc.gpp.Claim;
+import com.kookykraftmc.prismplus.com.kookykraftmc.prismplus.Actions.ClaimCreateAction;
+import com.kookykraftmc.prismplus.com.kookykraftmc.prismplus.Actions.ClaimEnterAction;
+import com.kookykraftmc.prismplus.com.kookykraftmc.prismplus.Actions.ClaimExitAction;
+import com.kookykraftmc.prismplus.com.kookykraftmc.prismplus.Actions.ClaimRemoveAction;
 import net.kaikk.mc.gpp.events.*;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.plugin.Plugin;
 
 /**
  * Created by TimeTheCat on 3/8/2016.
  */
 public class GPPEvents implements Listener {
+
     public Prismplus plugin;
     public GPPEvents(Prismplus plugin){
         this.plugin = plugin;
     }
+
+
     @EventHandler
     public void ClaimEnter(ClaimEnterEvent e) {
         Player p = e.getPlayer();
-        Location lfrom = e.getFrom();
-        Location lto = e.getTo();
-        /*
-        Not Sure to log claim or not
-        Claim c = e.getClaim();
-        */
+        if (e.getClaim().getOwnerName() == p.getName()) {
+            //Don't want to log if the player enters their own claim for now
+        } else {
+            ClaimEnterAction.claimEnterAction(plugin, p);
+        }
     }
     public void ClaimExit(ClaimExitEvent e) {
         Player p = e.getPlayer();
-        Location lfrom = e.getFrom();
-
-        Location lto = e.getTo();
-        /*
-        Not Sure to log claim or not
-        Claim c = e.getClaim();
-        */
+        if (e.getClaim().getOwnerName() == p.getName()) {
+            //Don't log
+        } else {
+            ClaimExitAction.claimExitAction(plugin, p);
+        }
     }
     public void ClaimCreate(ClaimCreateEvent e) {
         Player p = e.getPlayer();
-        /*
-        Claim c = e.getClaim();
-        */
+        ClaimCreateAction.claimCreateAction(plugin, p);
     }
     public void ClaimDelete(ClaimDeleteEvent e) {
         Player p = e.getPlayer();
-        /*
-        Claim c = e.getClaim();
-        */
+        ClaimRemoveAction.claimDeleteAction(plugin, p);
     }
-    public void ClaimTransfer(ClaimOwnerTransfer e) {
-        Player org = e.getPlayer();
-        Player newp = Bukkit.getServer().getPlayer(e.getNewOwnerUUID());
-        /*
-        Claim c = e.getClaim();
-         */
-    }
-    //maybe more?
 }

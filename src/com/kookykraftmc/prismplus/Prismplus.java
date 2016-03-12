@@ -2,6 +2,7 @@ package com.kookykraftmc.prismplus;
 
 import com.massivecraft.factions.Factions;
 import me.botsko.prism.Prism;
+import me.botsko.prism.actionlibs.ActionType;
 import me.botsko.prism.exceptions.InvalidActionException;
 import net.kaikk.mc.gpp.GriefPreventionPlus;
 import org.bukkit.plugin.Plugin;
@@ -18,8 +19,8 @@ public class Prismplus extends JavaPlugin {
     public Plugin FAC = this.getServer().getPluginManager().getPlugin("Factions");
     public Plugin prism = this.getServer().getPluginManager().getPlugin("Prism");
 
-    //Get Prism
-    private Prism p;
+    //get Prism
+    private Prism pri;
     //public logger
     public Logger l = Logger.getLogger("PrismPlus");
 
@@ -35,15 +36,17 @@ public class Prismplus extends JavaPlugin {
         //check if prism is enabled
         if (prismCheck() == true) {
             l.info("Prism found! Enabling plugin!");
-            Plugin _tp = prism;
-            p = (Prism) _tp;
-
+            pri = (Prism) prism;
             //check for GP+
             if (gppEnabledCfg == true && gppCheck() == true) {
                 l.info("GriefPreventionPlus event logging enabled!");
                 this.getServer().getPluginManager().registerEvents(new GPPEvents(this), this);
+                //add prism actions
                 try {
-                    Prism.getHandlerRegistry().registerCustomHandler(this, PrismHandler.class);
+                    Prism.getActionRegistry().registerCustomAction( this, new ActionType("gpp-claim-create", false, false, false, "ClaimCreateAction", "created claim"));
+                    Prism.getActionRegistry().registerCustomAction( this, new ActionType("gpp-claim-remove", false, false, false, "ClaimRemoveAction", "remove/deleted claim"));
+                    Prism.getActionRegistry().registerCustomAction( this, new ActionType("gpp-claim-enter", false, false, false, "ClaimEnterAction", "triggered"));
+                    Prism.getActionRegistry().registerCustomAction( this, new ActionType("gpp-claim-exit", false, false, false, "ClaimExitAction", "triggered"));
                 } catch (InvalidActionException e) {
                     e.printStackTrace();
                 }
@@ -82,5 +85,9 @@ public class Prismplus extends JavaPlugin {
         } else {
             return false;
         }
+    }
+
+    public Object getPrism() {
+        return pri;
     }
 }

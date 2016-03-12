@@ -1,0 +1,9 @@
+Plugins:
+  griefPreventionPlus: true
+  factions: false
+Events:
+  griefPreventionPlus:
+    claimCreate: true
+    claimDelte: true
+    claimEnter: false
+    claimExit: false
