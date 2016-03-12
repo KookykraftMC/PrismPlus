@@ -18,8 +18,8 @@ public class Prismplus extends JavaPlugin {
     public Logger l = Logger.getLogger("PrismPlus");
 
     //get enabled plugin events
-    public boolean gppEnabledCfg = this.getConfig().getBoolean("griefPreventionPlus");
-    public boolean factionsEnabledCfg = this.getConfig().getBoolean("factions");
+    public boolean gppEnabledCfg = this.getConfig().getBoolean("Plugins.griefPreventionPlus");
+    public boolean factionsEnabledCfg = this.getConfig().getBoolean("Plugins.factions");
 
     public void onEnable() {
         l.info("Loading Prism+!");
@@ -35,7 +35,7 @@ public class Prismplus extends JavaPlugin {
             if (gppEnabledCfg == true && gppCheck() == true) {
 
                 Plugin GPP = this.getServer().getPluginManager().getPlugin("GriefPreventionPlus");
-                
+
                 l.info("GriefPreventionPlus event logging enabled!");
 
                 this.getServer().getPluginManager().registerEvents(new GPPEvents(this), this);
