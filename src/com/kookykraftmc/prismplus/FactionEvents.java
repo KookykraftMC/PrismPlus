@@ -15,6 +15,7 @@ import org.bukkit.event.Listener;
  * Created by TimeTheCat on 3/8/2016.
  */
 public class FactionEvents implements Listener {
+    /*
     public Prismplus plugin;
     public FactionEvents(Prismplus plugin){
         this.plugin = plugin;
@@ -33,4 +34,5 @@ public class FactionEvents implements Listener {
         Faction fold = Faction.get(e.getOldChunkFaction());
         Player p = (Player) e.getMPlayer();
     }
+    */
 }

@@ -57,7 +57,7 @@ public class Prismplus extends JavaPlugin {
             //check for Factions
             if (factionsEnabledCfg == true && factionsCheck() == true) {
                 l.info("Factions event logging enabled!");
-                this.getServer().getPluginManager().registerEvents(new FactionEvents(this), this);
+                //this.getServer().getPluginManager().registerEvents(new FactionEvents(), this);
             } else {
                 l.info("Factions support disabled or not found");
             }
