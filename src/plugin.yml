@@ -1,5 +1,5 @@
 name: PrismPlus
 main: com.kookykraftmc.prismplus.Prismplus
 description: Addon for Prism that logs multiple events from other plugins
-version: 0.0.0.2
-softdepend: [Prism, GriefPreventionPlus]
+version: 0.0.0.3
+softdepend: [Prism, GriefPreventionPlus, Factions]

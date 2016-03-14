@@ -29,8 +29,6 @@ public class GPPEvents implements Listener {
             e.printStackTrace();
         }
     }
-
-
     @EventHandler(priority = EventPriority.MONITOR)
     public void ClaimEnter(ClaimEnterEvent e) {
         Player p = e.getPlayer();

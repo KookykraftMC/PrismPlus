@@ -5,5 +5,8 @@ Events:
   griefPreventionPlus:
     claimCreate: true
     claimDelte: true
-    claimEnter: false
-    claimExit: false
+    claimEnter: true
+    claimExit: true
+  factions:
+    factionCreate: true
+    factionDisband: true

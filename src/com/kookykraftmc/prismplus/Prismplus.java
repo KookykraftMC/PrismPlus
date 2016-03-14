@@ -16,6 +16,13 @@ public class Prismplus extends JavaPlugin {
     public Logger l = Logger.getLogger("PrismPlus");
     public static String prefix = "[Prism+]";
 
+    //config options commenting out for later
+    /*
+    * public boolean claimCreate = getConfig().getBoolean("Events.griefPreventionPlus.claimCreate");
+    * public boolean claimDelete = getConfig().getBoolean("Events.griefPreventionPlus.claimDelete");
+    * public boolean claimEnter = getConfig().getBoolean("Events.griefPreventionPlus.claimEnter");
+    * public boolean claimExit = getConfig().getBoolean("Events.griefPreventionPlus.claimExit");
+    */
     //get enabled plugin events
     public boolean gppEnabledCfg = this.getConfig().getBoolean("Plugins.griefPreventionPlus");
     public boolean factionsEnabledCfg = this.getConfig().getBoolean("Plugins.factions");
@@ -27,34 +34,31 @@ public class Prismplus extends JavaPlugin {
         saveConfig();
         //check if prism is enabled
         if (prismCheck()) {
-            l.info(prefix + "Prism found! Enabling plugin!");
+            l.info(prefix + " Prism found! Enabling plugin!");
             Plugin prism = this.getServer().getPluginManager().getPlugin("Prism");
             pri = (Prism) prism;
             //check for GP+
             if (gppEnabledCfg && gppCheck()) {
-
-                //Plugin GPP = this.getServer().getPluginManager().getPlugin("GriefPreventionPlus");
-
-                l.info(prefix + "GriefPreventionPlus event logging enabled!");
-
+                l.info(prefix + " GriefPreventionPlus event logging enabled!");
                 this.getServer().getPluginManager().registerEvents(new GPPEvents(this), this);
-                //add prism actions
-
                 //GP+ Instance
             } else {
-                l.info(prefix + "GriefPreventionPlus support disabled or not found");
+                l.info(prefix + " GriefPreventionPlus support disabled or not found");
             }
             //check for Factions
             if (factionsEnabledCfg && factionsCheck()) {
-                l.info(prefix + "Factions event logging enabled!");
-                //Plugin GPP = this.getServer().getPluginManager().getPlugin("Factions");
-                //this.getServer().getPluginManager().registerEvents(new FactionEvents(), this);
+                l.info(prefix + " Factions event logging enabled!");
+                this.getServer().getPluginManager().registerEvents(new FactionEvents(this), this);
             } else {
-                l.info(prefix + "Factions support disabled or not found");
+                l.info(prefix + " Factions support disabled or not found");
             }
         } else {
-            l.info((prefix + "Prism not found! Disabling plugin!"));
+            l.info((prefix + " Prism not found! Disabling plugin!"));
+            getServer().getPluginManager().disablePlugin(this);
         }
+    }
+    public void onDisabled() {
+        l.info(prefix + " Disabling PrismPlus! Goodbye!");
     }
     public boolean gppCheck() {
         return getServer().getPluginManager().getPlugin("GriefPreventionPlus").isEnabled();
