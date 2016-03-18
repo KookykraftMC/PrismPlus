@@ -1,6 +1,7 @@
 Plugins:
   griefPreventionPlus: true
   factions: false
+  witchery: false
 Events:
   griefPreventionPlus:
     claimCreate: true
@@ -10,3 +11,5 @@ Events:
   factions:
     factionCreate: true
     factionDisband: true
+  witchery:
+    tagLock: false

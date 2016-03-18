@@ -1,6 +1,7 @@
 package com.kookykraftmc.prismplus;
 
 import me.botsko.prism.Prism;
+import net.minecraftforge.common.MinecraftForge;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -26,6 +27,7 @@ public class Prismplus extends JavaPlugin {
     //get enabled plugin events
     public boolean gppEnabledCfg = this.getConfig().getBoolean("Plugins.griefPreventionPlus");
     public boolean factionsEnabledCfg = this.getConfig().getBoolean("Plugins.factions");
+    public boolean tagLockCfg = this.getConfig().getBoolean("Plugins.witchery");
 
     public void onEnable() {
         l.info(prefix + "Loading!");
@@ -52,6 +54,13 @@ public class Prismplus extends JavaPlugin {
             } else {
                 l.info(prefix + " Factions support disabled or not found");
             }
+            //log tag locking players
+            if (tagLockCfg && witcheryCheck()) {
+                l.info(prefix + " Tag lock logging enabled!");
+                this.getServer().getPluginManager().registerEvents(new TagLockEvents(this), this);
+            } else {
+                l.info(prefix = " Tag lock logging disabled or not found!");
+            }
         } else {
             l.info((prefix + " Prism not found! Disabling plugin!"));
             getServer().getPluginManager().disablePlugin(this);
@@ -70,6 +79,15 @@ public class Prismplus extends JavaPlugin {
     
     public boolean prismCheck() {
         return getServer().getPluginManager().getPlugin("Prism").isEnabled();
+    }
+
+    public boolean witcheryCheck() {
+        try {
+            Class.forName("com.emoniph.witchery.Witchery");
+            return true;
+        } catch (ClassNotFoundException ex) {
+            return false;
+        }
     }
 
     public Object getPrism() {
