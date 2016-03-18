@@ -7,6 +7,7 @@ import me.botsko.prism.exceptions.InvalidActionException;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 
@@ -24,7 +25,7 @@ public class TagLockEvents implements Listener {
             e.printStackTrace();
         }
     }
-    @EventHandler
+    @EventHandler (priority = EventPriority.MONITOR)
     public void onTagLock(PlayerInteractEntityEvent e) {
         if (e.getRightClicked().getType() == EntityType.PLAYER && e.getPlayer().getItemInHand().getType().toString() == "WITCHERY_TAGLOCKKIT" && e.isCancelled() == false) {
             Player p = e.getPlayer();

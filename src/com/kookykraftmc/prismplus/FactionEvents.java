@@ -8,6 +8,7 @@ import me.botsko.prism.events.PrismCustomPlayerActionEvent;
 import me.botsko.prism.exceptions.InvalidActionException;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 
 
@@ -27,7 +28,7 @@ public class FactionEvents implements Listener {
             e.printStackTrace();
         }
     }
-    @EventHandler
+    @EventHandler(priority = EventPriority.MONITOR)
     public void factionsCreate(EventFactionsCreate e) {
         Player p = (Player) e.getMPlayer();
         registerEvent("faction-create", p);
