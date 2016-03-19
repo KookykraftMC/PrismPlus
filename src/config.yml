@@ -1,7 +1,8 @@
+#Do not change version unless you want to reset config.
+Version: 0.0.4.2
 Plugins:
   griefPreventionPlus: true
   factions: false
-  witchery: false
 Events:
   griefPreventionPlus:
     claimCreate: true
@@ -11,5 +12,57 @@ Events:
   factions:
     factionCreate: true
     factionDisband: true
-  witchery:
-    tagLock: false
+
+#List of item names. Any time one is used it will be logged in prism. Case insensitive.
+#Correct name must be used, either use /findname while holding item or /findname (id)
+#to see the name that should be used here. Should be the same across all servers.
+#Will not cause any error if the item does not exist, so the same list can be
+#used across all servers.
+LogItems:
+#Test
+  - "BEDROCK"
+#Wrenches
+  - "BUILDCRAFTCORE_WRENCHITEM"
+  - "ENDERIO_ITEMYETAWRENCH"
+  - "GALACTICRAFTCORE_ITEMSTANDARDWRENCH"
+  - "REDSTONEARSENAL_TOOLWRENCHFLUX"
+  - "REDSTONEARSENAL_TOOLBATTLEWRENCHFLUX"
+  - "THERMALEXPANSION_WRENCH"
+  - "THERMALEXPANSION_TOOLBATTLEWRENCHINVAR"
+  - "APPLIEDENERGISTICS2_ITEMTOOLCERTUSQUARTZWRENCH"
+  - "APPLIEDENERGISTICS2_ITEMTOOLNETHERQUARTZWRENCH"
+#Thaumcraft wand
+  - "THAUMCRAFT_WANDCASTING"
+#Witchery brew (weird name), custom brew, taglock kit, hand, mystic branch
+  - "WITCHERY_INGREDIENT"
+  - "WITCHERY_BREWBOTTLE"
+  - "WITCHERY_TAGLOCKKIT"
+  - "WITCHERY_WITCHHAND"
+  - "WITCHERY_MYSTICBRANCH"
+#MCA crystal ball
+  - "MCA_CRYSTALBALL"
+#Artifacts
+  - "ARTIFACTS_ARTIFACT"
+#Blood magic sigils and spell crystals
+  - "AWWAYOFTIME_LAVASIGIL"
+  - "AWWAYOFTIME_WATERSIGIL"
+  - "AWWAYOFTIME_ITEMBLOODLIGHTSIGIL"
+  - "AWWAYOFTIME_ITEMCOMPLEXSPELLCRYSTAL"
+  - "AWWAYOFTIME_BLANKSPELL"
+#Chisels and smashing rock
+  - "CHISEL_CHISEL"
+  - "CHISEL_DIAMONDCHISEL"
+  - "CHISEL_OBSIDIANCHISEL"
+  - "CHISEL_SMASHINGROCK"
+#Dollies
+  - "JABBA_MOVER"
+  - "JABBA_MOVERDIAMOND"
+#Network tool
+  - "APPLIEDENERGISTICS2_ITEMTOOLNETWORKTOOL"
+#DRPG bypassing ranged attacks
+  - "DIVINERPG_SERENADESTRIKER"
+  - "DIVINERPG_SERENADEOFDEATH"
+  - "DIVINERPG_SOUNDOFMUSIC"
+  - "DIVINERPG_SOUNDOFCAROLS"
+#Precision shears
+  - "EXTRAUTILITIES_SHEARS"
