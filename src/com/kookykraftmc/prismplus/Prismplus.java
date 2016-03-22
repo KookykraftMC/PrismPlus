@@ -47,6 +47,7 @@ public class Prismplus extends JavaPlugin {
         addGPP();
         addFactions();
         addInteractions();
+        addForge();
     }
 
     public void onDisable() {
@@ -80,6 +81,14 @@ public class Prismplus extends JavaPlugin {
             this.getServer().getPluginManager().registerEvents(new InteractListener(this), this);
         } else {
             l.info(prefix + " Interaction logging not found!");
+        }
+    }
+    public void addForge() {
+        if (this.getConfig().getBoolean("Plugins.prismPlusForge")) {
+            l.info(prefix + " PrismPlusForge enabled!");
+            this.getServer().getPluginManager().registerEvents(new TestListener(this), this);
+        } else {
+            l.info(prefix + " PrismPlusForge disabled or not found.");
         }
     }
 

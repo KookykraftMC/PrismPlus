@@ -3,6 +3,7 @@ Version: 0.0.4.2
 Plugins:
   griefPreventionPlus: true
   factions: false
+  prismPlusForge: true
 Events:
   griefPreventionPlus:
     claimCreate: true
