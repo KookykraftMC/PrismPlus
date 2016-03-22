@@ -38,7 +38,7 @@ public class FactionEvents implements Listener {
     }
     @EventHandler(priority = EventPriority.MONITOR)
     public void factionsDispand(EventFactionsDisband e) {
-    	Player p = Bukkit.getServer().getPlayer(e.getMPlayer().getUuid());
+        Player p = Bukkit.getServer().getPlayer(e.getMPlayer().getUuid());
         registerEvent("factions-faction-delete", p);
     }
     void registerEvent(String type, Player p)
