@@ -18,7 +18,7 @@ public class TestListener implements Listener {
     public TestListener(Prismplus plugin){
         this.plugin = plugin;
         try {
-            Prism.getActionRegistry().registerCustomAction(plugin, new ActionType("test-event", false, false, false, "TestingAction", "test successful"));
+            Prism.getActionRegistry().registerCustomAction(plugin, new ActionType("forge-event-test", false, false, false, "TestingAction", "test successful"));
         } catch (InvalidActionException e) {
             e.printStackTrace();
         }
@@ -27,7 +27,7 @@ public class TestListener implements Listener {
     @EventHandler
     public void onTestEvent(TestEvent e) {
         Player p = e.getPlayer();
-        registerEvent("test-event", p);
+        registerEvent("forge-event-test", p);
     }
     void registerEvent(String type, Player p)
     {
