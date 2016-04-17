@@ -37,7 +37,7 @@ public class Prismplus extends JavaPlugin {
             l.info(prefix + "Config not found, creating.");
             saveDefaultConfig();
         }
-        else if(this.getConfig().getString("Version").isEmpty()||pdf.getVersion()!=this.getConfig().getString("Version"))
+        else if(this.getConfig().getString("Version").isEmpty()||!pdf.getVersion().equals(this.getConfig().getString("Version")))
         {
         	l.info(prefix + "Outdated config found, saving new version.");
         	saveDefaultConfig();
